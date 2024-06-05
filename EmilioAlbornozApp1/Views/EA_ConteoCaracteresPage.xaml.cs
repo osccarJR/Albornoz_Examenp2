@@ -22,9 +22,9 @@ namespace EmilioAlbornozApp1.Views
             var total = text.Length;
 
             labelLetters.Text = $"Letras: {letters}";
-            labelNumbers.Text = $"Números: {numbers}";
-            labelUppercase.Text = $"Mayúsculas: {uppercase}";
-            labelLowercase.Text = $"Minúsculas: {lowercase}";
+            labelNumbers.Text = $"Numeros: {numbers}";
+            labelUppercase.Text = $"Mayusculas: {uppercase}";
+            labelLowercase.Text = $"Minusculas: {lowercase}";
             labelVowels.Text = $"Vocales: {vowels}";
             labelTotal.Text = $"Total: {total}";
         }
@@ -33,9 +33,9 @@ namespace EmilioAlbornozApp1.Views
         {
             inputText.Text = string.Empty;
             labelLetters.Text = "Letras: 0";
-            labelNumbers.Text = "Números: 0";
-            labelUppercase.Text = "Mayúsculas: 0";
-            labelLowercase.Text = "Minúsculas: 0";
+            labelNumbers.Text = "Numeros: 0";
+            labelUppercase.Text = "Mayusculas: 0";
+            labelLowercase.Text = "Minusculas: 0";
             labelVowels.Text = "Vocales: 0";
             labelTotal.Text = "Total: 0";
         }

@@ -27,7 +27,7 @@ namespace EmilioAlbornozApp1.Views
 
         private void notesCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // 
+            // nuevos cambios
         }
     }
 }
