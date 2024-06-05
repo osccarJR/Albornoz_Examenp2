@@ -4,6 +4,9 @@
              x:Class="EmilioAlbornozApp1.Views.EA_AllNotesPage"
              xmlns:models="clr-namespace:EmilioAlbornozApp1.Models"
              Title="Your Notes">
+    <ContentPage.BindingContext>
+        <models:EA_AllNotes />
+    </ContentPage.BindingContext>
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
@@ -11,7 +14,7 @@
 
     <!-- Display notes in a list -->
     <CollectionView x:Name="notesCollection"
-                        ItemsSource="{Binding EmilioAlbornozApp1}"
+                        ItemsSource="{Binding Notes}"
                         Margin="20"
                         SelectionMode="Single"
                         SelectionChanged="notesCollection_SelectionChanged">

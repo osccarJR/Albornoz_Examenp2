@@ -1,3 +1,6 @@
+using EmilioAlbornozApp1.Models;
+using Microsoft.Maui.Controls;
+
 namespace EmilioAlbornozApp1.Views
 {
     public partial class EA_AllNotesPage : ContentPage
@@ -5,12 +8,16 @@ namespace EmilioAlbornozApp1.Views
         public EA_AllNotesPage()
         {
             InitializeComponent();
+            BindingContext = new EA_AllNotes();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            ((Models.EA_AllNotes)BindingContext).LoadNotes();
+            if (BindingContext is EA_AllNotes notes)
+            {
+                notes.LoadNotes();
+            }
         }
 
         private async void Add_Clicked(object sender, EventArgs e)
@@ -18,19 +25,9 @@ namespace EmilioAlbornozApp1.Views
             await Shell.Current.GoToAsync(nameof(EA_NotePage));
         }
 
-        private async void notesCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void notesCollection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.CurrentSelection.Count != 0)
-            {
-                // Get the note model
-                var note = (Models.EA_Note)e.CurrentSelection[0];
-
-                // Should navigate to "NotePage?ItemId=path\on\device\XYZ.notes.txt"
-                await Shell.Current.GoToAsync($"{nameof(EA_NotePage)}?{nameof(EA_NotePage.ItemId)}={note.Filename}");
-
-                // Unselect the UI
-                notesCollection.SelectedItem = null;
-            }
+            // 
         }
     }
 }

@@ -1,62 +1,61 @@
-namespace EmilioAlbornozApp1.Views;
+using EmilioAlbornozApp1.Models;
+using Microsoft.Maui.Controls;
+using System.IO;
 
-[QueryProperty(nameof(ItemId), nameof(ItemId))]
-public partial class EA_NotePage : ContentPage
+namespace EmilioAlbornozApp1.Views
 {
-
-    string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
-
-
-
-
-    public EA_NotePage()
+    [QueryProperty(nameof(ItemId), nameof(ItemId))]
+    public partial class EA_NotePage : ContentPage
     {
-        InitializeComponent();
+        string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
 
-        string appDataPath = FileSystem.AppDataDirectory;
-        string randomFileName = $"{Path.GetRandomFileName()}.notes.txt";
-
-        LoadNote(Path.Combine(appDataPath, randomFileName));
-    }
-    private void LoadNote(string fileName)
-    {
-        Models.EA_Note noteModel = new Models.EA_Note();
-        noteModel.Filename = fileName;
-
-        if (File.Exists(fileName))
+        public EA_NotePage()
         {
-            noteModel.Date = File.GetCreationTime(fileName);
-            noteModel.Text = File.ReadAllText(fileName);
+            InitializeComponent();
+
+            string appDataPath = FileSystem.AppDataDirectory;
+            string randomFileName = $"{Path.GetRandomFileName()}.notes.txt";
+
+            LoadNote(Path.Combine(appDataPath, randomFileName));
         }
 
-        BindingContext = noteModel;
-    }
-
-    private async void SaveButton_Clicked(object sender, EventArgs e)
-    {
-        if (BindingContext is Models.EA_Note note)
-            File.WriteAllText(note.Filename, TextEditor.Text);
-
-        await Shell.Current.GoToAsync("..");
-    }
-
-    private async void DeleteButton_Clicked(object sender, EventArgs e)
-    {
-        if (BindingContext is Models.EA_Note note)
+        private void LoadNote(string fileName)
         {
-            // Delete the file.
-            if (File.Exists(note.Filename))
-                File.Delete(note.Filename);
+            EA_Note noteModel = new EA_Note();
+            noteModel.Filename = fileName;
+
+            if (File.Exists(fileName))
+            {
+                noteModel.Date = File.GetCreationTime(fileName);
+                noteModel.Text = File.ReadAllText(fileName);
+            }
+
+            BindingContext = noteModel;
         }
 
-        await Shell.Current.GoToAsync("..");
+        private async void SaveButton_Clicked(object sender, EventArgs e)
+        {
+            if (BindingContext is EA_Note note)
+                File.WriteAllText(note.Filename, TextEditor.Text);
+
+            await Shell.Current.GoToAsync("..");
+        }
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            if (BindingContext is EA_Note note)
+            {
+                // Delete the file.
+                if (File.Exists(note.Filename))
+                    File.Delete(note.Filename);
+            }
+
+            await Shell.Current.GoToAsync("..");
+        }
+
+        public string ItemId
+        {
+            set { LoadNote(value); }
+        }
     }
-
-
-
-    public string ItemId
-    {
-        set { LoadNote(value); }
-    }
-
 }
