@@ -6,13 +6,13 @@
     xmlns:views="clr-namespace:EmilioAlbornozApp1.Views"
     Title="EmilioAlbornozApp1">
 
-    <FlyoutItem Title="Notas">
+    <FlyoutItem Title="Notas" Icon="icon_notes.png">
         <ShellContent ContentTemplate="{DataTemplate views:EA_AllNotesPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Acerca de">
+    <FlyoutItem Title="Acerca de" Icon="icon_about.png">
         <ShellContent ContentTemplate="{DataTemplate views:EA_AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Conteo de Caracteres">
+    <FlyoutItem Title="Conteo de Caracteres" Icon="icon_count.png">
         <ShellContent ContentTemplate="{DataTemplate views:EA_ConteoCaracteresPage}" />
     </FlyoutItem>
 </Shell>
