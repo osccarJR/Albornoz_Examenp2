@@ -2,17 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmilioAlbornozApp1.Views.EA_ConteoCaracteresPage"
-             Title="Conteo de Caracteres">
-    <Grid Padding="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
-        <Label Text="Ingrese una cadena de caracteres:" Grid.Row="0" Grid.ColumnSpan="2"/>
-        <Editor x:Name="inputText" Placeholder="Ingrese aquí" AutoSize="TextChanges" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <Label x:Name="labelLetters" Grid.Row="2" Grid.Column="0"/>
-        <Label x:Name="labelNumbers" Grid.Row="3" Grid.Column="0"/>
-        <Label x:Name="labelUppercase" Grid.Row="4" Grid.Column="0"/>
-        <Label x:Name="labelLowercase" Grid.Row="5" Grid.Column="0"/>
-        <Label x:Name="labelVowels" Grid.Row="6" Grid.Column="0"/>
-        <Label x:Name="labelTotal" Grid.Row="7" Grid.Column="0"/>
-        <Button Text="Calcular" Clicked="OnCalculateClicked" Grid.Row="8" Grid.Column="0"/>
-        <Button Text="Limpiar" Clicked="OnClearClicked" Grid.Row="8" Grid.Column="1"/>
+             Title="EA Conteo de Caracteres">
+    <Grid Padding="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+        <Image Source="logo_ea.png" Grid.Row="0" Grid.ColumnSpan="2" HeightRequest="100"/>
+        <Label Text="Escribe una cadena de caracteres:" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Editor x:Name="inputText" Placeholder="Escribe aquí" AutoSize="TextChanges" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelLetters" Grid.Row="3" Grid.Column="0"/>
+        <Label x:Name="labelNumbers" Grid.Row="4" Grid.Column="0"/>
+        <Label x:Name="labelUppercase" Grid.Row="5" Grid.Column="0"/>
+        <Label x:Name="labelLowercase" Grid.Row="6" Grid.Column="0"/>
+        <Label x:Name="labelVowels" Grid.Row="7" Grid.Column="0"/>
+        <Label x:Name="labelTotal" Grid.Row="8" Grid.Column="0"/>
+        <Button Text="Calcular" Clicked="OnCalculateClicked" Grid.Row="9" Grid.Column="0"/>
+        <Button Text="Limpiar" Clicked="OnClearClicked" Grid.Row="9" Grid.Column="1"/>
     </Grid>
 </ContentPage>

@@ -26,7 +26,7 @@ namespace EmilioAlbornozApp1.Views
             labelUppercase.Text = $"Mayusculas: {uppercase}";
             labelLowercase.Text = $"Minusculas: {lowercase}";
             labelVowels.Text = $"Vocales: {vowels}";
-            labelTotal.Text = $"Total: {total}";
+            labelTotal.Text = $"Total Caracteres: {total}";
         }
 
         private void OnClearClicked(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace EmilioAlbornozApp1.Views
             labelUppercase.Text = "Mayusculas: 0";
             labelLowercase.Text = "Minusculas: 0";
             labelVowels.Text = "Vocales: 0";
-            labelTotal.Text = "Total: 0";
+            labelTotal.Text = "Total Caracteres: 0";
         }
     }
 }

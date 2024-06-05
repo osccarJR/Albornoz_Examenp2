@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EmilioAlbornozApp1.Views.EA_AllNotesPage"
              xmlns:models="clr-namespace:EmilioAlbornozApp1.Models"
-             Title="Your Notes">
+             Title="EA Notas">
     <ContentPage.BindingContext>
         <models:EA_AllNotes />
     </ContentPage.BindingContext>
